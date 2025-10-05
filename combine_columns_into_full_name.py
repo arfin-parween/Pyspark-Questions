@@ -7,7 +7,8 @@ display(df)
 
 # COMMAND ----------
 
-def add_full_name(df, first="first_name", last="last_name"):
-    return df.withColumn("full_name", F.concat_ws(" ", F.col(first), F.col(last)))
-result_df = add_full_name(df)
+result_df = df.withColumn(
+    "full_name",
+    F.concat_ws(" ", F.col("first_name"), F.col("last_name"))
+)
 display(result_df)
